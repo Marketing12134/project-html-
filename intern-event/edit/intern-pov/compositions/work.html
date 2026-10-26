@@ -1,0 +1,80 @@
+<template>
+  <style>
+    @font-face { font-family: "Permanent Marker"; src: url("assets/fonts/permanent-marker.woff2") format("woff2"); }
+    @font-face { font-family: "Kalam"; font-weight: 700; src: url("assets/fonts/kalam-700.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    .cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    .cam video { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+    .stk-wrap { position: absolute; }
+    .stk { display: inline-block; background: #FFFFFF; color: #141414; font-family: "Kalam"; font-weight: 700;
+      font-size: 54px; line-height: 1.08; padding: 16px 30px 12px; border-radius: 22px; border: 5px solid #141414;
+      box-shadow: 0 8px 0 rgba(0,0,0,.28); transform-origin: 30% 50%; white-space: nowrap; }
+    .chip-wrap { position: absolute; left: 56px; top: 196px; }
+    .chip { display: flex; align-items: center; gap: 18px; padding: 12px 26px 10px 14px; border-radius: 999px;
+      border: 5px solid #141414; font-family: "Permanent Marker"; font-size: 44px; color: #141414;
+      box-shadow: 0 7px 0 rgba(0,0,0,.28); transform-origin: 0% 50%; white-space: nowrap; }
+    .chip .num { width: 64px; height: 64px; border-radius: 50%; background: #141414; color: #fff; display: flex;
+      align-items: center; justify-content: center; font-size: 36px; }
+    .chip svg { width: 58px; height: 58px; }
+    .flood { position: absolute; inset: 0; }
+    .flood-in { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 18px; border-left: 10px solid #141414; }
+    .flood-k { font-family: "Kalam"; font-weight: 700; font-size: 64px; color: #141414; background: #fff; padding: 6px 30px 2px;
+      border: 5px solid #141414; border-radius: 16px; transform: rotate(-3deg); }
+    .flood-t { font-family: "Permanent Marker"; font-size: 116px; line-height: 1.02; color: #fff; text-align: center;
+      -webkit-text-stroke: 12px #141414; paint-order: stroke fill; }
+    .flood-in svg { width: 170px; height: 170px; }
+    .doodle path, .doodle line { fill: none; stroke: #FFD60A; stroke-width: 11; stroke-linecap: round; }
+  </style>
+  <div id="root" data-composition-id="work" data-width="1080" data-height="1920" data-duration="8.8">
+    <div class="cam" id="work-cam1" style="z-index:1"><video id="work-v1" class="clip" src="assets/shots/f1.mp4" data-start="0.0" data-duration="2.3" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div class="cam" id="work-cam2" style="z-index:2"><video id="work-v2" class="clip" src="assets/shots/f2.mp4" data-start="2.3" data-duration="1.7" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div class="cam" id="work-cam3" style="z-index:3"><video id="work-v3" class="clip" src="assets/shots/f3.mp4" data-start="4.0" data-duration="1.7" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div class="cam" id="work-cam4" style="z-index:4"><video id="work-v4" class="clip" src="assets/shots/f4.mp4" data-start="5.7" data-duration="3.1" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div id="work-flood" class="clip flood" data-start="0" data-duration="0.82" data-track-index="3" style="z-index:80">
+      <div class="flood-in" style="background:#FFE14D">
+        <div class="flood-k">INTERN 03</div>
+        <div class="flood-t">The<br>Corporate Survivor</div>
+        <svg viewBox="0 0 100 100"><rect x="18" y="20" width="64" height="44" rx="5" fill="#9AD0F5" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M8 72 H92 L86 84 H14 Z" fill="#ddd" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+    <div id="work-chip" class="clip chip-wrap" data-start="0.72" data-duration="8.08" data-track-index="1" style="z-index:60">
+      <div class="chip" style="background:#FFE14D"><span class="num">03</span>The Corporate Survivor<svg viewBox="0 0 100 100"><rect x="18" y="20" width="64" height="44" rx="5" fill="#9AD0F5" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M8 72 H92 L86 84 H14 Z" fill="#ddd" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+    </div>
+    <div id="work-s1" class="clip stk-wrap" data-start="0.85" data-duration="1.45" data-track-index="2" data-rot="-3" style="left:70px;top:1150px;z-index:50"><div class="stk">Carrying this...</div></div>
+    <div id="work-s2" class="clip stk-wrap" data-start="2.45" data-duration="1.55" data-track-index="2" data-rot="3" style="left:70px;top:1150px;z-index:50"><div class="stk">Shooting that...</div></div>
+    <div id="work-s3" class="clip stk-wrap" data-start="4.05" data-duration="1.65" data-track-index="2" data-rot="-2" style="left:70px;top:1150px;z-index:50"><div class="stk">Lunch break? What is that...</div></div>
+    <div id="work-s4" class="clip stk-wrap" data-start="5.85" data-duration="2.9" data-track-index="2" data-rot="-3" style="left:70px;top:820px;z-index:50"><div class="stk">Clock in: <span style='color:#1E8C55'>YES</span></div></div>
+    <div id="work-s5" class="clip stk-wrap" data-start="6.3" data-duration="2.45" data-track-index="2" data-rot="2" style="left:70px;top:960px;z-index:50"><div class="stk">Clock out: <span style='color:#C1121F'>UNAVAILABLE</span></div></div>
+    <div id="work-s6" class="clip stk-wrap" data-start="6.75" data-duration="2.05" data-track-index="2" data-rot="-2" style="left:70px;top:1100px;z-index:50"><div class="stk" style="font-size:50px">Work-life balance<br>has left the chat.</div></div>
+    <div id="work-cam-ico" style="position:absolute;left:560px;top:1120px;width:130px;height:130px;z-index:55"><svg viewBox="0 0 100 100"><path d="M12 34 H32 L38 24 H62 L68 34 H88 V80 H12 Z" fill="#fff" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="50" cy="56" r="16" fill="#7CC8F2" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+    <div id="work-batt" style="position:absolute;left:640px;top:640px;width:220px;height:110px;z-index:55"><svg viewBox="0 0 140 70"><rect x="6" y="8" width="112" height="54" rx="10" fill="#fff" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><rect x="118" y="24" width="14" height="22" rx="4" fill="#141414"/><rect x="16" y="18" width="18" height="34" rx="4" fill="#E5383B"/></svg></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#work-cam1', { scale: 1.0 }, { scale: 1, duration: 0.42, ease: 'expo.out' }, 0.0);
+    tl.fromTo('#work-cam2', { scale: 1.12 }, { scale: 1, duration: 0.42, ease: 'expo.out' }, 2.3);
+    tl.fromTo('#work-cam3', { scale: 1.12 }, { scale: 1, duration: 0.42, ease: 'expo.out' }, 4.0);
+    tl.fromTo('#work-cam4', { scale: 1.12 }, { scale: 1, duration: 0.42, ease: 'expo.out' }, 5.7);
+    tl.fromTo('#work-flood .flood-in', { x: 1100 }, { x: 0, duration: 0.2, ease: 'power3.out' }, 0);
+    tl.fromTo('#work-flood .flood-k', { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: 'back.out(2)' }, 0.12);
+    tl.fromTo('#work-flood .flood-t', { scale: 1.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: 'expo.out' }, 0.18);
+    tl.fromTo('#work-flood svg', { scale: 0, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.3, ease: 'back.out(2.5)' }, 0.26);
+    tl.to('#work-flood .flood-in', { y: -1960, duration: 0.24, ease: 'power3.in' }, 0.56);
+    tl.fromTo('#work-chip .chip', { x: -700 }, { x: 0, duration: 0.36, ease: 'expo.out' }, 0.72);
+    tl.to('#work-chip .chip', { x: -760, duration: 0.18, ease: 'power3.in' }, 8.6);
+
+    document.querySelectorAll('#root .stk-wrap').forEach((w) => {
+      const s = +w.dataset.start, d = +w.dataset.duration, r = +w.dataset.rot, el = w.querySelector('.stk');
+      tl.fromTo(el, { scale: 0.35, rotation: r - 12, opacity: 0 }, { scale: 1, rotation: r, opacity: 1, duration: 0.34, ease: 'back.out(2.2)' }, s);
+      tl.to(el, { scale: 0.85, opacity: 0, duration: 0.12, ease: 'power2.in' }, s + d - 0.13);
+    });
+
+    tl.fromTo('#work-cam-ico', { scale: 0, rotation: 30 }, { scale: 1, rotation: 8, duration: 0.3, ease: 'back.out(3)' }, 2.6);
+    tl.to('#work-cam-ico', { opacity: 0, duration: 0.1 }, 3.9);
+    tl.fromTo('#work-batt', { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: 'back.out(3)' }, 5.95);
+    tl.fromTo('#work-batt rect:nth-child(3)', { opacity: 1 }, { opacity: 0.15, duration: 0.12, repeat: 5, yoyo: true, ease: 'none' }, 6.4);
+    tl.to('#work-batt', { opacity: 0, duration: 0.12 }, 8.6);
+    window.__timelines["work"] = tl;
+  </script>
+</template>

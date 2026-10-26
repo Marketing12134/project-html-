@@ -1,0 +1,30 @@
+{
+ "clip": "v_16",
+ "duration": 52.89,
+ "segments": [
+  {
+   "start": 13.56,
+   "end": 16.91,
+   "text": "So darf ich da noch was mitmachen.",
+   "lang": "de"
+  },
+  {
+   "start": 22.0,
+   "end": 22.9,
+   "text": "Where's Bobby?",
+   "lang": "en"
+  },
+  {
+   "start": 26.1,
+   "end": 27.7,
+   "text": "was just comfortable.",
+   "lang": "en"
+  },
+  {
+   "start": 51.25,
+   "end": 52.86,
+   "text": "謝謝",
+   "lang": "zh"
+  }
+ ]
+}

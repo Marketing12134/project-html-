@@ -1,0 +1,49 @@
+<template>
+  <style>
+    @font-face { font-family: "Permanent Marker"; src: url("assets/fonts/permanent-marker.woff2") format("woff2"); }
+    @font-face { font-family: "Kalam"; font-weight: 700; src: url("assets/fonts/kalam-700.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    .cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    .cam video { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+    .stk-wrap { position: absolute; }
+    .stk { display: inline-block; background: #FFFFFF; color: #141414; font-family: "Kalam"; font-weight: 700;
+      font-size: 54px; line-height: 1.08; padding: 16px 30px 12px; border-radius: 22px; border: 5px solid #141414;
+      box-shadow: 0 8px 0 rgba(0,0,0,.28); transform-origin: 30% 50%; white-space: nowrap; }
+    .chip-wrap { position: absolute; left: 56px; top: 196px; }
+    .chip { display: flex; align-items: center; gap: 18px; padding: 12px 26px 10px 14px; border-radius: 999px;
+      border: 5px solid #141414; font-family: "Permanent Marker"; font-size: 44px; color: #141414;
+      box-shadow: 0 7px 0 rgba(0,0,0,.28); transform-origin: 0% 50%; white-space: nowrap; }
+    .chip .num { width: 64px; height: 64px; border-radius: 50%; background: #141414; color: #fff; display: flex;
+      align-items: center; justify-content: center; font-size: 36px; }
+    .chip svg { width: 58px; height: 58px; }
+    .flood { position: absolute; inset: 0; }
+    .flood-in { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 18px; border-left: 10px solid #141414; }
+    .flood-k { font-family: "Kalam"; font-weight: 700; font-size: 64px; color: #141414; background: #fff; padding: 6px 30px 2px;
+      border: 5px solid #141414; border-radius: 16px; transform: rotate(-3deg); }
+    .flood-t { font-family: "Permanent Marker"; font-size: 116px; line-height: 1.02; color: #fff; text-align: center;
+      -webkit-text-stroke: 12px #141414; paint-order: stroke fill; }
+    .flood-in svg { width: 170px; height: 170px; }
+    .doodle path, .doodle line { fill: none; stroke: #FFD60A; stroke-width: 11; stroke-linecap: round; }
+    #hook-line { isolation: isolate; }
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920" data-duration="2.5">
+    <div class="cam" id="hook-cam1" style="z-index:1"><video id="hook-v1" class="clip" src="assets/shots/a1.mp4" data-start="0" data-duration="2.5" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div id="hook-scrim" style="position:absolute;inset:0;background:radial-gradient(120% 60% at 50% 22%, rgba(0,0,0,.55), rgba(0,0,0,0) 70%);z-index:5"></div>
+    <div id="hook-text" style="position:absolute;left:70px;top:300px;width:900px;z-index:20">
+      <div id="hook-pov" style="font-family:'Permanent Marker';font-size:190px;line-height:1;color:#fff;-webkit-text-stroke:16px #141414;paint-order:stroke fill;transform:rotate(-4deg)">POV:</div>
+      <div id="hook-line" style="margin-top:26px;font-family:'Kalam';font-weight:700;font-size:84px;line-height:1.12;color:#fff;-webkit-text-stroke:12px #141414;paint-order:stroke fill">
+        Bila <span id="hook-hl" style="position:relative;display:inline-block"><span id="hook-hl-bg" style="position:absolute;left:-10px;right:-10px;top:14px;bottom:4px;background:#FFD60A;border-radius:10px;transform-origin:0 50%;z-index:-1"></span>3 intern</span><br>pergi event<br>yang sama...
+      </div>
+    </div>
+    <svg id="hook-spark" class="doodle" data-layout-ignore viewBox="0 0 120 120" style="position:absolute;left:640px;top:250px;width:156px;height:156px;z-index:45;transform:rotate(-10deg)"><line x1="20" y1="60" x2="52" y2="60" pathLength="1"/><line x1="30" y1="22" x2="56" y2="44" pathLength="1"/><line x1="30" y1="98" x2="56" y2="76" pathLength="1"/></svg>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#hook-hl-bg', { scaleX: 0 }, { scaleX: 1, duration: 0.28, ease: 'power3.out' }, 0.5);
+    tl.fromTo('#hook-spark line', { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.22, stagger: 0.05, ease: 'power2.out' }, 0.15);
+    tl.fromTo('#hook-cam1', { scale: 1.0 }, { scale: 1.06, duration: 2.5, ease: 'none' }, 0);
+    tl.to('#hook-text', { y: -120, opacity: 0, duration: 0.18, ease: 'power3.in' }, 2.3);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>

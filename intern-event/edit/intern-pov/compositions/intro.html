@@ -1,0 +1,70 @@
+<template>
+  <style>
+    @font-face { font-family: "Permanent Marker"; src: url("assets/fonts/permanent-marker.woff2") format("woff2"); }
+    @font-face { font-family: "Kalam"; font-weight: 700; src: url("assets/fonts/kalam-700.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    .cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    .cam video { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+    .stk-wrap { position: absolute; }
+    .stk { display: inline-block; background: #FFFFFF; color: #141414; font-family: "Kalam"; font-weight: 700;
+      font-size: 54px; line-height: 1.08; padding: 16px 30px 12px; border-radius: 22px; border: 5px solid #141414;
+      box-shadow: 0 8px 0 rgba(0,0,0,.28); transform-origin: 30% 50%; white-space: nowrap; }
+    .chip-wrap { position: absolute; left: 56px; top: 196px; }
+    .chip { display: flex; align-items: center; gap: 18px; padding: 12px 26px 10px 14px; border-radius: 999px;
+      border: 5px solid #141414; font-family: "Permanent Marker"; font-size: 44px; color: #141414;
+      box-shadow: 0 7px 0 rgba(0,0,0,.28); transform-origin: 0% 50%; white-space: nowrap; }
+    .chip .num { width: 64px; height: 64px; border-radius: 50%; background: #141414; color: #fff; display: flex;
+      align-items: center; justify-content: center; font-size: 36px; }
+    .chip svg { width: 58px; height: 58px; }
+    .flood { position: absolute; inset: 0; }
+    .flood-in { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 18px; border-left: 10px solid #141414; }
+    .flood-k { font-family: "Kalam"; font-weight: 700; font-size: 64px; color: #141414; background: #fff; padding: 6px 30px 2px;
+      border: 5px solid #141414; border-radius: 16px; transform: rotate(-3deg); }
+    .flood-t { font-family: "Permanent Marker"; font-size: 116px; line-height: 1.02; color: #fff; text-align: center;
+      -webkit-text-stroke: 12px #141414; paint-order: stroke fill; }
+    .flood-in svg { width: 170px; height: 170px; }
+    .doodle path, .doodle line { fill: none; stroke: #FFD60A; stroke-width: 11; stroke-linecap: round; }
+    .big { position: absolute; z-index: 20; font-family: "Permanent Marker"; font-size: 132px; line-height: 1.05; color: #fff;
+      -webkit-text-stroke: 12px #141414; paint-order: stroke fill; padding: 4px 34px 0; border: 6px solid #141414; border-radius: 20px; }
+    .intro-card { position: absolute; width: 280px; }
+    .pol { background: #fff; border: 10px solid; border-radius: 26px; padding: 0; overflow: hidden; height: 330px;
+      box-shadow: 0 10px 0 rgba(0,0,0,.3); outline: 5px solid #141414; }
+    .pol img { width: 100%; height: 100%; object-fit: cover; }
+    .lab { margin: -26px 8px 0; position: relative; border: 5px solid #141414; border-radius: 18px; text-align: center;
+      font-family: "Kalam"; font-weight: 700; font-size: 34px; line-height: 1.05; color: #141414; padding: 10px 6px 6px; }
+    .lab b { font-size: 28px; }
+  </style>
+  <div id="root" data-composition-id="intro" data-width="1080" data-height="1920" data-duration="2.5">
+    <div class="cam" id="intro-cam1" style="z-index:1"><video id="intro-v1" class="clip" src="assets/shots/b1.mp4" data-start="0" data-duration="2.5" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div style="position:absolute;inset:0;background:rgba(10,10,14,.58);z-index:5"></div>
+    <div id="intro-t1" class="big" style="top:300px;left:70px;background:#7CC8F2;transform:rotate(-3deg)">3 intern.</div>
+    <div id="intro-t2" class="big" style="top:470px;left:300px;background:#FF8FB8;transform:rotate(2deg)">1 event.</div>
+    <div id="intro-sub" style="position:absolute;top:668px;left:70px;width:860px;text-align:center;font-family:'Kalam';font-weight:700;font-size:48px;line-height:1.15;color:#fff;z-index:20">Same place. Different missions.<br>Same chaos.</div>
+    <div id="intro-card1" class="intro-card" data-rot="-6" style="left:70px;top:880px;z-index:31">
+      <div class="pol" style="border-color:#FF8FB8"><img src="assets/stills/food.jpg" alt=""></div>
+      <div class="lab" style="background:#FF8FB8"><b>Intern 01</b><br>The Food<br>Hunter</div>
+    </div>
+    <div id="intro-card2" class="intro-card" data-rot="2" style="left:395px;top:850px;z-index:32">
+      <div class="pol" style="border-color:#7CC8F2"><img src="assets/stills/learn.jpg" alt=""></div>
+      <div class="lab" style="background:#7CC8F2"><b>Intern 02</b><br>The<br>Intellectual</div>
+    </div>
+    <div id="intro-card3" class="intro-card" data-rot="-3" style="left:720px;top:880px;z-index:33">
+      <div class="pol" style="border-color:#FFE14D"><img src="assets/stills/work.jpg" alt=""></div>
+      <div class="lab" style="background:#FFE14D"><b>Intern 03</b><br>The Corporate<br>Survivor</div>
+    </div>
+    <svg id="intro-spark" class="doodle" data-layout-ignore viewBox="0 0 120 120" style="position:absolute;left:830px;top:280px;width:132px;height:132px;z-index:45;transform:rotate(200deg)"><line x1="20" y1="60" x2="52" y2="60" pathLength="1"/><line x1="30" y1="22" x2="56" y2="44" pathLength="1"/><line x1="30" y1="98" x2="56" y2="76" pathLength="1"/></svg>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#intro-t1', { scale: 1.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.24, ease: 'expo.out' }, 0.08);
+    tl.fromTo('#intro-t2', { scale: 1.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.24, ease: 'expo.out' }, 0.33);
+    tl.fromTo('#intro-sub', { opacity: 0, filter: 'blur(6px)' }, { opacity: 1, filter: 'blur(0px)', duration: 0.18 }, 0.6);
+    document.querySelectorAll('#root .intro-card').forEach((c, i) => {
+      tl.fromTo(c, { y: 700, rotation: +c.dataset.rot * 3 }, { y: 0, rotation: +c.dataset.rot, duration: 0.42, ease: 'back.out(1.4)' }, 0.72 + i * 0.15);
+    });
+    tl.fromTo('#intro-spark line', { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.22, stagger: 0.05, ease: 'power2.out' }, 0.4);
+    tl.to('#root .intro-card, #intro-t1, #intro-t2, #intro-sub', { opacity: 0, y: '-=80', duration: 0.15, ease: 'power2.in' }, 2.33);
+    window.__timelines["intro"] = tl;
+  </script>
+</template>

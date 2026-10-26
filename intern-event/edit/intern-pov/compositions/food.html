@@ -1,0 +1,83 @@
+<template>
+  <style>
+    @font-face { font-family: "Permanent Marker"; src: url("assets/fonts/permanent-marker.woff2") format("woff2"); }
+    @font-face { font-family: "Kalam"; font-weight: 700; src: url("assets/fonts/kalam-700.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    .cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    .cam video { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+    .stk-wrap { position: absolute; }
+    .stk { display: inline-block; background: #FFFFFF; color: #141414; font-family: "Kalam"; font-weight: 700;
+      font-size: 54px; line-height: 1.08; padding: 16px 30px 12px; border-radius: 22px; border: 5px solid #141414;
+      box-shadow: 0 8px 0 rgba(0,0,0,.28); transform-origin: 30% 50%; white-space: nowrap; }
+    .chip-wrap { position: absolute; left: 56px; top: 196px; }
+    .chip { display: flex; align-items: center; gap: 18px; padding: 12px 26px 10px 14px; border-radius: 999px;
+      border: 5px solid #141414; font-family: "Permanent Marker"; font-size: 44px; color: #141414;
+      box-shadow: 0 7px 0 rgba(0,0,0,.28); transform-origin: 0% 50%; white-space: nowrap; }
+    .chip .num { width: 64px; height: 64px; border-radius: 50%; background: #141414; color: #fff; display: flex;
+      align-items: center; justify-content: center; font-size: 36px; }
+    .chip svg { width: 58px; height: 58px; }
+    .flood { position: absolute; inset: 0; }
+    .flood-in { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 18px; border-left: 10px solid #141414; }
+    .flood-k { font-family: "Kalam"; font-weight: 700; font-size: 64px; color: #141414; background: #fff; padding: 6px 30px 2px;
+      border: 5px solid #141414; border-radius: 16px; transform: rotate(-3deg); }
+    .flood-t { font-family: "Permanent Marker"; font-size: 116px; line-height: 1.02; color: #fff; text-align: center;
+      -webkit-text-stroke: 12px #141414; paint-order: stroke fill; }
+    .flood-in svg { width: 170px; height: 170px; }
+    .doodle path, .doodle line { fill: none; stroke: #FFD60A; stroke-width: 11; stroke-linecap: round; }
+  </style>
+  <div id="root" data-composition-id="food" data-width="1080" data-height="1920" data-duration="7.9">
+    <div class="cam" id="food-cam1" style="z-index:1"><video id="food-v1" class="clip" src="assets/shots/d1.mp4" data-start="0.0" data-duration="2.3" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div class="cam" id="food-cam2" style="z-index:2"><video id="food-v2" class="clip" src="assets/shots/d2.mp4" data-start="2.3" data-duration="1.7" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div class="cam" id="food-cam3" style="z-index:3"><video id="food-v3" class="clip" src="assets/shots/d3.mp4" data-start="4.0" data-duration="1.7" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div class="cam" id="food-cam4" style="z-index:4"><video id="food-v4" class="clip" src="assets/shots/d4.mp4" data-start="5.7" data-duration="0.6" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div class="cam" id="food-cam5" style="z-index:5"><video id="food-v5" class="clip" src="assets/shots/d5.mp4" data-start="6.3" data-duration="1.6" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div id="food-flood" class="clip flood" data-start="0" data-duration="0.82" data-track-index="3" style="z-index:80">
+      <div class="flood-in" style="background:#FF8FB8">
+        <div class="flood-k">INTERN 01</div>
+        <div class="flood-t">The<br>Food Hunter</div>
+        <svg viewBox="0 0 100 100"><path d="M14 46 Q50 6 86 46 Z" fill="#F4A940" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><rect x="10" y="50" width="80" height="10" rx="5" fill="#6BCB4A" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><rect x="12" y="62" width="76" height="12" rx="6" fill="#8B4A2B" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M14 78 H86 Q84 92 70 92 H30 Q16 92 14 78 Z" fill="#F4A940" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+    <div id="food-chip" class="clip chip-wrap" data-start="0.72" data-duration="7.18" data-track-index="1" style="z-index:60">
+      <div class="chip" style="background:#FF8FB8"><span class="num">01</span>The Food Hunter<svg viewBox="0 0 100 100"><path d="M14 46 Q50 6 86 46 Z" fill="#F4A940" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><rect x="10" y="50" width="80" height="10" rx="5" fill="#6BCB4A" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><rect x="12" y="62" width="76" height="12" rx="6" fill="#8B4A2B" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M14 78 H86 Q84 92 70 92 H30 Q16 92 14 78 Z" fill="#F4A940" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+    </div>
+    <div id="food-s1" class="clip stk-wrap" data-start="0.85" data-duration="1.45" data-track-index="2" data-rot="-4" style="left:70px;top:1120px;z-index:50"><div class="stk">Booth? Nanti dulu...</div></div>
+    <div id="food-s2" class="clip stk-wrap" data-start="2.45" data-duration="1.55" data-track-index="2" data-rot="3" style="left:70px;top:1150px;z-index:50"><div class="stk">Food hunting in progress...</div></div>
+    <div id="food-s3" class="clip stk-wrap" data-start="4.15" data-duration="1.55" data-track-index="2" data-rot="-2" style="left:70px;top:1150px;z-index:50"><div class="stk">Researching local cuisine</div></div>
+    <div id="food-s4" class="clip stk-wrap" data-start="6.4" data-duration="1.5" data-track-index="2" data-rot="6" style="left:560px;top:560px;z-index:50"><div class="stk" style="font-size:64px">Mission 1:<br>Completed!</div></div>
+    <svg id="food-arrow" data-layout-ignore viewBox="0 0 200 200" style="position:absolute;left:560px;top:1000px;width:300px;height:260px;z-index:45;transform:rotate(0deg)"><path d="M20 160 Q100 160 150 60 M120 72 L150 60 L160 96" pathLength="1" fill="none" stroke="#141414" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 160 Q100 160 150 60 M120 72 L150 60 L160 96" pathLength="1" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div id="food-check" style="position:absolute;left:470px;top:530px;width:120px;height:120px;z-index:55"><svg viewBox="0 0 100 100"><rect x="8" y="8" width="84" height="84" rx="16" fill="#2BB673" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M26 52 L44 70 L76 32" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div id="food-heart" style="position:absolute;left:760px;top:1060px;width:110px;height:110px;z-index:55"><svg viewBox="0 0 100 100"><path d="M50 86 L16 52 A20 20 0 0 1 50 22 A20 20 0 0 1 84 52 Z" fill="#FF8FB8" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+    <svg id="food-spark" class="doodle" data-layout-ignore viewBox="0 0 120 120" style="position:absolute;left:860px;top:470px;width:120px;height:120px;z-index:45;transform:rotate(30deg)"><line x1="20" y1="60" x2="52" y2="60" pathLength="1"/><line x1="30" y1="22" x2="56" y2="44" pathLength="1"/><line x1="30" y1="98" x2="56" y2="76" pathLength="1"/></svg>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#food-cam1', { scale: 1.0 }, { scale: 1, duration: 0.42, ease: 'expo.out' }, 0.0);
+    tl.fromTo('#food-cam2', { scale: 1.12 }, { scale: 1, duration: 0.42, ease: 'expo.out' }, 2.3);
+    tl.fromTo('#food-cam3', { scale: 1.12 }, { scale: 1, duration: 0.42, ease: 'expo.out' }, 4.0);
+    tl.fromTo('#food-cam4', { scale: 1.12 }, { scale: 1, duration: 0.42, ease: 'expo.out' }, 5.7);
+    tl.fromTo('#food-cam5', { scale: 1.12 }, { scale: 1, duration: 0.42, ease: 'expo.out' }, 6.3);
+    tl.fromTo('#food-flood .flood-in', { x: 1100 }, { x: 0, duration: 0.2, ease: 'power3.out' }, 0);
+    tl.fromTo('#food-flood .flood-k', { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: 'back.out(2)' }, 0.12);
+    tl.fromTo('#food-flood .flood-t', { scale: 1.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: 'expo.out' }, 0.18);
+    tl.fromTo('#food-flood svg', { scale: 0, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.3, ease: 'back.out(2.5)' }, 0.26);
+    tl.to('#food-flood .flood-in', { y: -1960, duration: 0.24, ease: 'power3.in' }, 0.56);
+    tl.fromTo('#food-chip .chip', { x: -700 }, { x: 0, duration: 0.36, ease: 'expo.out' }, 0.72);
+    tl.to('#food-chip .chip', { x: -760, duration: 0.18, ease: 'power3.in' }, 7.7);
+
+    document.querySelectorAll('#root .stk-wrap').forEach((w) => {
+      const s = +w.dataset.start, d = +w.dataset.duration, r = +w.dataset.rot, el = w.querySelector('.stk');
+      tl.fromTo(el, { scale: 0.35, rotation: r - 12, opacity: 0 }, { scale: 1, rotation: r, opacity: 1, duration: 0.34, ease: 'back.out(2.2)' }, s);
+      tl.to(el, { scale: 0.85, opacity: 0, duration: 0.12, ease: 'power2.in' }, s + d - 0.13);
+    });
+
+    tl.fromTo('#food-arrow path', { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.3, ease: 'power2.out' }, 1.0);
+    tl.to('#food-arrow', { opacity: 0, duration: 0.1 }, 2.2);
+    tl.fromTo('#food-heart', { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: 'back.out(3)' }, 4.35);
+    tl.to('#food-heart', { scale: 0, duration: 0.1 }, 5.6);
+    tl.fromTo('#food-check', { scale: 0, rotation: -40 }, { scale: 1, rotation: -8, duration: 0.32, ease: 'back.out(2.6)' }, 6.5);
+    tl.fromTo('#food-spark line', { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.22, stagger: 0.05, ease: 'power2.out' }, 6.55);
+    window.__timelines["food"] = tl;
+  </script>
+</template>

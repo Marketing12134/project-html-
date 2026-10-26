@@ -1,0 +1,58 @@
+<template>
+  <style>
+    @font-face { font-family: "Permanent Marker"; src: url("assets/fonts/permanent-marker.woff2") format("woff2"); }
+    @font-face { font-family: "Kalam"; font-weight: 700; src: url("assets/fonts/kalam-700.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    .cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    .cam video { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+    .stk-wrap { position: absolute; }
+    .stk { display: inline-block; background: #FFFFFF; color: #141414; font-family: "Kalam"; font-weight: 700;
+      font-size: 54px; line-height: 1.08; padding: 16px 30px 12px; border-radius: 22px; border: 5px solid #141414;
+      box-shadow: 0 8px 0 rgba(0,0,0,.28); transform-origin: 30% 50%; white-space: nowrap; }
+    .chip-wrap { position: absolute; left: 56px; top: 196px; }
+    .chip { display: flex; align-items: center; gap: 18px; padding: 12px 26px 10px 14px; border-radius: 999px;
+      border: 5px solid #141414; font-family: "Permanent Marker"; font-size: 44px; color: #141414;
+      box-shadow: 0 7px 0 rgba(0,0,0,.28); transform-origin: 0% 50%; white-space: nowrap; }
+    .chip .num { width: 64px; height: 64px; border-radius: 50%; background: #141414; color: #fff; display: flex;
+      align-items: center; justify-content: center; font-size: 36px; }
+    .chip svg { width: 58px; height: 58px; }
+    .flood { position: absolute; inset: 0; }
+    .flood-in { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 18px; border-left: 10px solid #141414; }
+    .flood-k { font-family: "Kalam"; font-weight: 700; font-size: 64px; color: #141414; background: #fff; padding: 6px 30px 2px;
+      border: 5px solid #141414; border-radius: 16px; transform: rotate(-3deg); }
+    .flood-t { font-family: "Permanent Marker"; font-size: 116px; line-height: 1.02; color: #fff; text-align: center;
+      -webkit-text-stroke: 12px #141414; paint-order: stroke fill; }
+    .flood-in svg { width: 170px; height: 170px; }
+    .doodle path, .doodle line { fill: none; stroke: #FFD60A; stroke-width: 11; stroke-linecap: round; }
+    .mini { position: absolute; top: 0; width: 130px; height: 120px; display: flex; align-items: center; justify-content: center;
+      font-family: "Permanent Marker"; font-size: 64px; color: #141414; border: 6px solid #141414; border-radius: 20px; box-shadow: 0 8px 0 rgba(0,0,0,.3); }
+  </style>
+  <div id="root" data-composition-id="cta" data-width="1080" data-height="1920" data-duration="2.8">
+    <div class="cam" id="cta-cam1" style="z-index:1"><video id="cta-v1" class="clip" src="assets/shots/i1.mp4" data-start="0" data-duration="2.8" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div style="position:absolute;inset:0;background:rgba(10,10,14,.6);z-index:5"></div>
+    <div id="cta-tag" style="position:absolute;left:110px;top:560px;width:820px;z-index:30;text-align:center">
+      <div id="cta-q" style="display:inline-block;background:#fff;border:7px solid #141414;border-radius:26px;padding:22px 44px 10px;
+        font-family:'Permanent Marker';font-size:104px;line-height:1.05;color:#141414;box-shadow:0 12px 0 rgba(0,0,0,.35);transform:rotate(-5deg)">Which intern<br>are you?</div>
+    </div>
+    <div id="cta-c" style="position:absolute;left:150px;top:960px;z-index:30;display:flex;align-items:center;gap:20px;background:#141414;
+      border:5px solid #fff;border-radius:999px;padding:16px 40px 10px;font-family:'Kalam';font-weight:700;font-size:62px;color:#fff;transform:rotate(2deg)">
+      Comment below! <span style="display:inline-block;width:80px;height:80px"><svg viewBox="0 0 100 100"><path d="M14 18 H86 Q92 18 92 24 V64 Q92 70 86 70 H44 L24 88 L28 70 H14 Q8 70 8 64 V24 Q8 18 14 18 Z" fill="#fff" stroke="#141414" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="32" cy="44" r="5" fill="#141414"/><circle cx="50" cy="44" r="5" fill="#141414"/><circle cx="68" cy="44" r="5" fill="#141414"/></svg></span></div>
+    <svg id="cta-arrow" data-layout-ignore viewBox="0 0 200 200" style="position:absolute;left:640px;top:1060px;width:300px;height:260px;z-index:45;transform:rotate(0deg)"><path d="M30 20 Q150 30 160 150 M126 124 L160 150 L182 112" pathLength="1" fill="none" stroke="#141414" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 20 Q150 30 160 150 M126 124 L160 150 L182 112" pathLength="1" fill="none" stroke="#FFD60A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg id="cta-spark" class="doodle" data-layout-ignore viewBox="0 0 120 120" style="position:absolute;left:40px;top:500px;width:144px;height:144px;z-index:45;transform:rotate(-20deg)"><line x1="20" y1="60" x2="52" y2="60" pathLength="1"/><line x1="30" y1="22" x2="56" y2="44" pathLength="1"/><line x1="30" y1="98" x2="56" y2="76" pathLength="1"/></svg><svg id="cta-spark2" class="doodle" data-layout-ignore viewBox="0 0 120 120" style="position:absolute;left:870px;top:480px;width:132px;height:132px;z-index:45;transform:rotate(200deg)"><line x1="20" y1="60" x2="52" y2="60" pathLength="1"/><line x1="30" y1="22" x2="56" y2="44" pathLength="1"/><line x1="30" y1="98" x2="56" y2="76" pathLength="1"/></svg>
+    <div id="cta-cards" style="position:absolute;left:0;top:1180px;width:1080px;z-index:20">
+      <div class="mini" style="left:120px;background:#FF8FB8;transform:rotate(-6deg)">01</div>
+      <div class="mini" style="left:300px;background:#7CC8F2;transform:rotate(3deg)">02</div>
+      <div class="mini" style="left:480px;background:#FFE14D;transform:rotate(-2deg)">03</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#cta-q', { scale: 1.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.26, ease: 'expo.out' }, 0.12);
+    tl.fromTo('#cta-c', { y: 160, opacity: 0 }, { y: 0, opacity: 1, duration: 0.34, ease: 'back.out(1.8)' }, 0.5);
+    tl.fromTo('#cta-arrow path', { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.32, ease: 'power2.out' }, 0.75);
+    tl.fromTo('#cta-cards .mini', { y: 200, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, stagger: 0.08, ease: 'back.out(2)' }, 0.55);
+    tl.fromTo('#cta-spark line, #cta-spark2 line', { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.22, stagger: 0.05, ease: 'power2.out' }, 0.3);
+    window.__timelines["cta"] = tl;
+  </script>
+</template>

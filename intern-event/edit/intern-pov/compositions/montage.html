@@ -1,0 +1,79 @@
+<template>
+  <style>
+    @font-face { font-family: "Permanent Marker"; src: url("assets/fonts/permanent-marker.woff2") format("woff2"); }
+    @font-face { font-family: "Kalam"; font-weight: 700; src: url("assets/fonts/kalam-700.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    .cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    .cam video { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+    .stk-wrap { position: absolute; }
+    .stk { display: inline-block; background: #FFFFFF; color: #141414; font-family: "Kalam"; font-weight: 700;
+      font-size: 54px; line-height: 1.08; padding: 16px 30px 12px; border-radius: 22px; border: 5px solid #141414;
+      box-shadow: 0 8px 0 rgba(0,0,0,.28); transform-origin: 30% 50%; white-space: nowrap; }
+    .chip-wrap { position: absolute; left: 56px; top: 196px; }
+    .chip { display: flex; align-items: center; gap: 18px; padding: 12px 26px 10px 14px; border-radius: 999px;
+      border: 5px solid #141414; font-family: "Permanent Marker"; font-size: 44px; color: #141414;
+      box-shadow: 0 7px 0 rgba(0,0,0,.28); transform-origin: 0% 50%; white-space: nowrap; }
+    .chip .num { width: 64px; height: 64px; border-radius: 50%; background: #141414; color: #fff; display: flex;
+      align-items: center; justify-content: center; font-size: 36px; }
+    .chip svg { width: 58px; height: 58px; }
+    .flood { position: absolute; inset: 0; }
+    .flood-in { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 18px; border-left: 10px solid #141414; }
+    .flood-k { font-family: "Kalam"; font-weight: 700; font-size: 64px; color: #141414; background: #fff; padding: 6px 30px 2px;
+      border: 5px solid #141414; border-radius: 16px; transform: rotate(-3deg); }
+    .flood-t { font-family: "Permanent Marker"; font-size: 116px; line-height: 1.02; color: #fff; text-align: center;
+      -webkit-text-stroke: 12px #141414; paint-order: stroke fill; }
+    .flood-in svg { width: 170px; height: 170px; }
+    .doodle path, .doodle line { fill: none; stroke: #FFD60A; stroke-width: 11; stroke-linecap: round; }
+    .tag { font-family: "Permanent Marker"; font-size: 76px; color: #141414; border: 6px solid #141414; border-radius: 18px;
+      padding: 6px 34px 0; box-shadow: 0 8px 0 rgba(0,0,0,.3); }
+    .pay { font-family: "Permanent Marker"; font-size: 120px; line-height: 1.08; -webkit-text-stroke: 14px #141414; paint-order: stroke fill; }
+  </style>
+  <div id="root" data-composition-id="montage" data-width="1080" data-height="1920" data-duration="4.0">
+    <div class="cam" id="mont-cam1" style="z-index:1"><video id="mont-v1" class="clip" src="assets/shots/g1.mp4" data-start="0.0" data-duration="0.5" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div id="mont-l1" class="clip" data-start="0.0" data-duration="0.5" data-track-index="2" style="position:absolute;left:70px;top:1170px;z-index:50"><div class="tag" style="background:#FF8FB8">EAT</div></div>
+    <div class="cam" id="mont-cam2" style="z-index:2"><video id="mont-v2" class="clip" src="assets/shots/g2.mp4" data-start="0.5" data-duration="0.5" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div id="mont-l2" class="clip" data-start="0.5" data-duration="0.5" data-track-index="2" style="position:absolute;left:600px;top:1170px;z-index:50"><div class="tag" style="background:#7CC8F2">LEARN</div></div>
+    <div class="cam" id="mont-cam3" style="z-index:3"><video id="mont-v3" class="clip" src="assets/shots/g3.mp4" data-start="1.0" data-duration="0.5" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div id="mont-l3" class="clip" data-start="1.0" data-duration="0.5" data-track-index="2" style="position:absolute;left:70px;top:1170px;z-index:50"><div class="tag" style="background:#FFE14D">WORK</div></div>
+    <div class="cam" id="mont-cam4" style="z-index:4"><video id="mont-v4" class="clip" src="assets/shots/g4.mp4" data-start="1.5" data-duration="0.5" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div id="mont-l4" class="clip" data-start="1.5" data-duration="0.5" data-track-index="2" style="position:absolute;left:600px;top:1170px;z-index:50"><div class="tag" style="background:#FF8FB8">EAT</div></div>
+    <div class="cam" id="mont-cam5" style="z-index:5"><video id="mont-v5" class="clip" src="assets/shots/g5.mp4" data-start="2.0" data-duration="0.5" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div id="mont-l5" class="clip" data-start="2.0" data-duration="0.5" data-track-index="2" style="position:absolute;left:70px;top:1170px;z-index:50"><div class="tag" style="background:#7CC8F2">LEARN</div></div>
+    <div class="cam" id="mont-cam6" style="z-index:6"><video id="mont-v6" class="clip" src="assets/shots/g6.mp4" data-start="2.5" data-duration="0.5" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div id="mont-l6" class="clip" data-start="2.5" data-duration="0.5" data-track-index="2" style="position:absolute;left:600px;top:1170px;z-index:50"><div class="tag" style="background:#FFE14D">WORK</div></div>
+    <div class="cam" id="mont-cam7" style="z-index:7"><video id="mont-v7" class="clip" src="assets/shots/g7.mp4" data-start="3.0" data-duration="0.5" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div id="mont-l7" class="clip" data-start="3.0" data-duration="0.5" data-track-index="2" style="position:absolute;left:70px;top:1170px;z-index:50"><div class="tag" style="background:#FF8FB8">EAT</div></div>
+    <div class="cam" id="mont-cam8" style="z-index:8"><video id="mont-v8" class="clip" src="assets/shots/g8.mp4" data-start="3.5" data-duration="0.5" data-media-start="0" data-hf-media-start-basis="local" data-track-index="0" data-has-audio="true" data-volume="0.4" data-fade-in="0.03" data-fade-out="0.03" playsinline></video></div>
+    <div id="mont-l8" class="clip" data-start="3.5" data-duration="0.5" data-track-index="2" style="position:absolute;left:600px;top:1170px;z-index:50"><div class="tag" style="background:#8EE3C0">REPEAT</div></div>
+    <div id="mont-pay" class="clip" data-start="1.5" data-duration="2.5" data-track-index="3" style="position:absolute;left:70px;top:560px;width:900px;z-index:70;text-align:center">
+      <div id="mont-p1" class="pay" style="color:#fff">Different missions.</div>
+      <div id="mont-p2" class="pay" style="color:#FFD60A">Same energy.</div>
+    </div>
+    <svg id="mont-spark" class="doodle" data-layout-ignore viewBox="0 0 120 120" style="position:absolute;left:30px;top:470px;width:144px;height:144px;z-index:45;transform:rotate(-30deg)"><line x1="20" y1="60" x2="52" y2="60" pathLength="1"/><line x1="30" y1="22" x2="56" y2="44" pathLength="1"/><line x1="30" y1="98" x2="56" y2="76" pathLength="1"/></svg><svg id="mont-spark2" class="doodle" data-layout-ignore viewBox="0 0 120 120" style="position:absolute;left:900px;top:760px;width:132px;height:132px;z-index:45;transform:rotate(150deg)"><line x1="20" y1="60" x2="52" y2="60" pathLength="1"/><line x1="30" y1="22" x2="56" y2="44" pathLength="1"/><line x1="30" y1="98" x2="56" y2="76" pathLength="1"/></svg>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#mont-cam1', { scale: 1.18, rotation: 2 }, { scale: 1.04, rotation: 0, duration: 0.45, ease: 'expo.out' }, 0.0);
+    tl.fromTo('#mont-l1 .tag', { scale: 0.4, rotation: -14 }, { scale: 1, rotation: 4, duration: 0.2, ease: 'back.out(3)' }, 0.0);
+    tl.fromTo('#mont-cam2', { scale: 1.18, rotation: -2 }, { scale: 1.04, rotation: 0, duration: 0.45, ease: 'expo.out' }, 0.5);
+    tl.fromTo('#mont-l2 .tag', { scale: 0.4, rotation: -14 }, { scale: 1, rotation: -5, duration: 0.2, ease: 'back.out(3)' }, 0.5);
+    tl.fromTo('#mont-cam3', { scale: 1.18, rotation: 2 }, { scale: 1.04, rotation: 0, duration: 0.45, ease: 'expo.out' }, 1.0);
+    tl.fromTo('#mont-l3 .tag', { scale: 0.4, rotation: -14 }, { scale: 1, rotation: 4, duration: 0.2, ease: 'back.out(3)' }, 1.0);
+    tl.fromTo('#mont-cam4', { scale: 1.18, rotation: -2 }, { scale: 1.04, rotation: 0, duration: 0.45, ease: 'expo.out' }, 1.5);
+    tl.fromTo('#mont-l4 .tag', { scale: 0.4, rotation: -14 }, { scale: 1, rotation: -5, duration: 0.2, ease: 'back.out(3)' }, 1.5);
+    tl.fromTo('#mont-cam5', { scale: 1.18, rotation: 2 }, { scale: 1.04, rotation: 0, duration: 0.45, ease: 'expo.out' }, 2.0);
+    tl.fromTo('#mont-l5 .tag', { scale: 0.4, rotation: -14 }, { scale: 1, rotation: 4, duration: 0.2, ease: 'back.out(3)' }, 2.0);
+    tl.fromTo('#mont-cam6', { scale: 1.18, rotation: -2 }, { scale: 1.04, rotation: 0, duration: 0.45, ease: 'expo.out' }, 2.5);
+    tl.fromTo('#mont-l6 .tag', { scale: 0.4, rotation: -14 }, { scale: 1, rotation: -5, duration: 0.2, ease: 'back.out(3)' }, 2.5);
+    tl.fromTo('#mont-cam7', { scale: 1.18, rotation: 2 }, { scale: 1.04, rotation: 0, duration: 0.45, ease: 'expo.out' }, 3.0);
+    tl.fromTo('#mont-l7 .tag', { scale: 0.4, rotation: -14 }, { scale: 1, rotation: 4, duration: 0.2, ease: 'back.out(3)' }, 3.0);
+    tl.fromTo('#mont-cam8', { scale: 1.18, rotation: -2 }, { scale: 1.04, rotation: 0, duration: 0.45, ease: 'expo.out' }, 3.5);
+    tl.fromTo('#mont-l8 .tag', { scale: 0.4, rotation: -14 }, { scale: 1, rotation: -5, duration: 0.2, ease: 'back.out(3)' }, 3.5);
+    tl.fromTo('#mont-p1', { scale: 1.5, opacity: 0, rotation: -6 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.24, ease: 'expo.out' }, 1.5);
+    tl.fromTo('#mont-p2', { scale: 1.5, opacity: 0, rotation: 0 }, { scale: 1, opacity: 1, rotation: 2, duration: 0.24, ease: 'expo.out' }, 1.75);
+    tl.fromTo('#mont-spark line, #mont-spark2 line', { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.22, stagger: 0.05, ease: 'power2.out' }, 1.85);
+    tl.to('#mont-pay', { scale: 1.3, opacity: 0, duration: 0.14, ease: 'power3.in' }, 3.84);
+    window.__timelines["montage"] = tl;
+  </script>
+</template>
