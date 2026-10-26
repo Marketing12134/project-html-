@@ -1,0 +1,8 @@
+.env
+*.mp4
+*.mov
+*.m4a
+*.wav
+*.mp3
+edit/
+node_modules/
